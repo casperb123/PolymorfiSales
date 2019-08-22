@@ -32,11 +32,6 @@ namespace PolymorfiSales
             return totalPrice;
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals((Invoice)obj);
-        }
-
         public override string ToString()
         {
             return $"{base.ToString()} Product Count: {Products.Count}";

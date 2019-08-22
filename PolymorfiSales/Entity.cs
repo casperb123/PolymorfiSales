@@ -20,11 +20,6 @@ namespace PolymorfiSales
             get { return id; }
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals((Entity)obj);
-        }
-
         public bool Equals(Entity other)
         {
             if (other is null) return false;

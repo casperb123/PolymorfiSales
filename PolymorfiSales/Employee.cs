@@ -33,11 +33,6 @@ namespace PolymorfiSales
             return earnings;
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals((Employee)obj);
-        }
-
         public override string ToString()
         {
             return $"{base.ToString()} Name: {Name}";

@@ -36,11 +36,6 @@ namespace PolymorfiSales
             return base.Earnings() + weeklySales * (decimal)CommisionRate / 100;
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals((SalesRepresentive)obj);
-        }
-
         public override string ToString()
         {
             return $"{base.ToString()} Commision Rate: {CommisionRate} Weekly Sales: {WeeklySales}";

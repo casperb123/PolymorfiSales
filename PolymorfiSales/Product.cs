@@ -39,11 +39,6 @@ namespace PolymorfiSales
             set { name = value; }
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals((Product)obj);
-        }
-
         public override string ToString()
         {
             return $"{base.ToString()} Name: {Name} Price: {Price} Quantity: {Quantity}";
