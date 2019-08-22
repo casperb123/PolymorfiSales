@@ -13,7 +13,7 @@ namespace PolymorfiSales.UnitTests
             BaseSalariedEmployee baseSalariedEmployee = new BaseSalariedEmployee(1_000, "Casper");
             BaseSalariedEmployee baseSalariedEmployee1 = new BaseSalariedEmployee(1_000, "Casper");
 
-            Assert.True(baseSalariedEmployee.Equals(baseSalariedEmployee1));
+            Assert.True(baseSalariedEmployee.Equals(baseSalariedEmployee1) && baseSalariedEmployee.GetHashCode() == baseSalariedEmployee1.GetHashCode());
         }
 
         [Fact]

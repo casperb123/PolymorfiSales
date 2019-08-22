@@ -29,7 +29,12 @@ namespace PolymorfiSales
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id);
+            int hash = 19;
+            unchecked
+            {
+                hash = (hash * 31) + Id.GetHashCode();
+            }
+            return hash;
         }
 
         public override string ToString()

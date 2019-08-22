@@ -48,7 +48,13 @@ namespace PolymorfiSales
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name);
+            int hash = 19;
+            unchecked
+            {
+                hash = (hash * 31) + base.GetHashCode();
+                hash = (hash * 31) + (Name == null ? 0 : Name.GetHashCode());
+            }
+            return hash;
         }
     }
 }

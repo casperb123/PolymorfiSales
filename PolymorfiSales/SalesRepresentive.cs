@@ -52,7 +52,14 @@ namespace PolymorfiSales
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), CommisionRate, WeeklySales);
+            int hash = 19;
+            unchecked
+            {
+                hash = (hash * 31) + base.GetHashCode();
+                hash = (hash * 31) + WeeklySales.GetHashCode();
+                hash = (hash * 31) + CommisionRate.GetHashCode();
+            }
+            return hash;
         }
     }
 }

@@ -48,15 +48,23 @@ namespace PolymorfiSales
         {
             if (other is null) return false;
 
-            return base.Equals(other) &&
-                   Name == other.Name &&
-                   Price == other.Price &&
-                   Quantity == other.Quantity;
+            return base.Equals(other)
+                   && Name == other.Name
+                   && Price == other.Price
+                   && Quantity == other.Quantity;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Quantity, Price, Name);
+            int hash = 19;
+            unchecked
+            {
+                hash = (hash * 31) + base.GetHashCode();
+                hash = (hash * 31) + (Name == null ? 0 : Name.GetHashCode());
+                hash = (hash * 31) + Price.GetHashCode();
+                hash = (hash * 31) + Quantity.GetHashCode();
+            }
+            return hash;
         }
     }
 }
