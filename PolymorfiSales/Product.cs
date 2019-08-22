@@ -41,29 +41,22 @@ namespace PolymorfiSales
 
         public override bool Equals(object obj)
         {
-            if (obj is Product product)
-            {
-                if (product.Name == Name && product.Price == Price && product.Quantity == Quantity)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Equals((Product)obj);
         }
 
         public override string ToString()
         {
-            return $"ID: {Id} | Name: {Name} | Price: {Price} | Quantity: {Quantity}";
+            return $"{base.ToString()} Name: {Name} Price: {Price} Quantity: {Quantity}";
         }
 
         public bool Equals(Product other)
         {
-            return other != null &&
-                   base.Equals(other) &&
-                   Quantity == other.Quantity &&
+            if (other is null) return false;
+
+            return base.Equals(other) &&
+                   Name == other.Name &&
                    Price == other.Price &&
-                   Name == other.Name;
+                   Quantity == other.Quantity;
         }
 
         public override int GetHashCode()

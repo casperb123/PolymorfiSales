@@ -34,26 +34,20 @@ namespace PolymorfiSales
 
         public override bool Equals(object obj)
         {
-            if (obj is Invoice invoice)
-            {
-                if (invoice.Id == Id && invoice.Products.SequenceEqual(Products))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Equals((Invoice)obj);
         }
 
         public override string ToString()
         {
-            return $"ID: {Id} | Products: {Products.ToString()}";
+            return $"{base.ToString()} Product Count: {Products.Count}";
         }
 
         public bool Equals(Invoice other)
         {
-            return other != null &&
-                   base.Equals(other);
+            if (other is null) return false;
+
+            return base.Equals(other)
+                && Products.SequenceEqual(other.Products);
         }
 
         public override int GetHashCode()

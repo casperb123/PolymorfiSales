@@ -35,32 +35,25 @@ namespace PolymorfiSales
 
         public override bool Equals(object obj)
         {
-            if (obj is Employee employee)
-            {
-                if (employee.Id == Id && employee.Name == Name)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Equals((Employee)obj);
         }
 
         public override string ToString()
         {
-            return $"ID: {Id} | Name: {Name}";
+            return $"{base.ToString()} Name: {Name}";
         }
 
         public bool Equals(Employee other)
         {
-            return other != null &&
-                   base.Equals(other) &&
-                   Name == other.Name;
+            if (other is null) return false;
+
+            return base.Equals(other)
+                && Name == other.Name;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name);
+            return HashCode.Combine(base.GetHashCode(), Name);
         }
     }
 }

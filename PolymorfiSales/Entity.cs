@@ -22,21 +22,14 @@ namespace PolymorfiSales
 
         public override bool Equals(object obj)
         {
-            if (obj is Entity entity)
-            {
-                if (entity.Id == Id)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Equals((Entity)obj);
         }
 
         public bool Equals(Entity other)
         {
-            return other != null &&
-                   Id == other.Id;
+            if (other is null) return false;
+
+            return Id == other.Id;
         }
 
         public override int GetHashCode()

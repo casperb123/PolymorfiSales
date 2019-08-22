@@ -38,32 +38,21 @@ namespace PolymorfiSales
 
         public override bool Equals(object obj)
         {
-            if (obj is SalesRepresentive salesRepresentive)
-            {
-                if (salesRepresentive.Id == Id &&
-                    salesRepresentive.Salary == Salary &&
-                    salesRepresentive.Name == Name &&
-                    salesRepresentive.CommisionRate == CommisionRate &&
-                    salesRepresentive.WeeklySales == WeeklySales)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Equals((SalesRepresentive)obj);
         }
 
         public override string ToString()
         {
-            return $"ID: {Id} | Salary: {Salary} | Name: {Name} | Commision Rate: {CommisionRate} | Weekly Sales: {WeeklySales}";
+            return $"{base.ToString()} Commision Rate: {CommisionRate} Weekly Sales: {WeeklySales}";
         }
 
         public bool Equals(SalesRepresentive other)
         {
-            return other != null &&
-                   base.Equals(other) &&
-                   CommisionRate == other.CommisionRate &&
-                   WeeklySales == other.WeeklySales;
+            if (other is null) return false;
+
+            return base.Equals(other)
+                   && CommisionRate == other.CommisionRate
+                   && WeeklySales == other.WeeklySales;
         }
 
         public override int GetHashCode()
